@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小花包租代管 — Logo 設計理念</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --rose: #C9706A;
+      --rose-light: #D98880;
+      --rose-pale: #F2E0DC;
+      --ink: #2C2420;
+      --ink-light: #5C4A44;
+      --cream: #FAF6F2;
+      --cream-dark: #F0E8E0;
+      --white: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ══ HERO ══ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 80px 40px;
+      background: linear-gradient(160deg, #FAF6F2 0%, #F0E4DC 50%, #FAF6F2 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 112, 106, 0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-bg 7s ease-in-out infinite;
+    }
+
+    @keyframes pulse-bg {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1
+      }
+    }
+
+    .hero-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.3s;
+    }
+
+    .logo-hero-img {
+      max-width: 580px;
+      width: 88%;
+      opacity: 0;
+      animation: fade-up 1.2s ease forwards 0.7s;
+      filter: drop-shadow(0 8px 32px rgba(201, 112, 106, 0.15));
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 2.2s;
+    }
+
+    .scroll-hint span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--rose), transparent);
+      animation: scroll-anim 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-anim {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top
+      }
+
+      51% {
+        transform: scaleY(1);
+        transform-origin: bottom
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom
+      }
+    }
+
+    /* ══ SHARED ══ */
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--rose-pale), transparent);
+      max-width: 200px;
+    }
+
+    .section-label.light {
+      color: rgba(201, 112, 106, 0.7);
+    }
+
+    .section-label.light::after {
+      background: linear-gradient(to right, rgba(201, 112, 106, 0.3), transparent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══ MOCKUP ══ */
+    .mockup-section {
+      padding: 80px 40px;
+      background: var(--cream-dark);
+    }
+
+    .mockup-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .mockup-img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 20px 80px rgba(44, 36, 32, 0.12);
+    }
+
+    /* ══ CONCEPT ══ */
+    .concept-section {
+      padding: 120px 40px;
+      background: var(--cream);
+    }
+
+    .concept-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .concept-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      letter-spacing: 0.3em;
+      color: var(--ink);
+      border-left: 2px solid var(--rose);
+      padding-left: 20px;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .concept-text {
+      font-size: 15px;
+      line-height: 2.6;
+      color: var(--ink-light);
+      font-weight: 300;
+      max-width: 700px;
+      letter-spacing: 0.06em;
+    }
+
+    .concept-text p {
+      margin-bottom: 1.6em;
+    }
+
+    /* ══ ELEMENTS ══ */
+    .elements-section {
+      background: var(--ink);
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .elements-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--rose), transparent);
+    }
+
+    .elements-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .elements-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .elements-logo-img {
+      max-width: 520px;
+      width: 82%;
+      background: white;
+      padding: 28px 48px;
+      border-radius: 4px;
+    }
+
+    .connector-line {
+      width: 1px;
+      height: 55px;
+      background: linear-gradient(to bottom, rgba(201, 112, 106, 0.5), rgba(201, 112, 106, 0.1));
+      margin: 0 auto;
+    }
+
+    .connector-spread {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16%;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .connector-spread::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16%;
+      right: 16%;
+      height: 1px;
+      background: rgba(201, 112, 106, 0.25);
+    }
+
+    .connector-vert {
+      width: 1px;
+      height: 40px;
+      background: rgba(201, 112, 106, 0.3);
+    }
+
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .element-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .element-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .element-card:nth-child(2) {
+      transition-delay: 0.15s
+    }
+
+    .element-card:nth-child(3) {
+      transition-delay: 0.3s
+    }
+
+    .element-img-wrap {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(201, 112, 106, 0.3);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .element-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .element-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .element-label-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+    }
+
+    .element-label-zh {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.4em;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      margin-top: 4px;
+    }
+
+    .element-desc {
+      font-size: 13px;
+      line-height: 2;
+      color: rgba(255, 255, 255, 0.38);
+      text-align: center;
+      letter-spacing: 0.05em;
+      font-weight: 300;
+      max-width: 230px;
+    }
+
+    /* ══ COLOR ══ */
+    .color-section {
+      padding: 120px 40px;
+      background: var(--cream);
+    }
+
+    .color-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .color-swatch {
+      border-radius: 4px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .color-swatch.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .color-swatch:nth-child(2) {
+      transition-delay: 0.1s
+    }
+
+    .color-swatch:nth-child(3) {
+      transition-delay: 0.2s
+    }
+
+    .color-swatch:nth-child(4) {
+      transition-delay: 0.3s
+    }
+
+    .swatch-block {
+      height: 120px;
+    }
+
+    .swatch-info {
+      padding: 16px 20px;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-top: none;
+    }
+
+    .swatch-name {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .swatch-hex {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+    }
+
+    /* ══ FULLPAGE ══ */
+    .fullpage-section {
+      padding: 80px 40px;
+    }
+
+    .fullpage-section.bg-cream {
+      background: var(--cream-dark);
+    }
+
+    .fullpage-section.bg-dark {
+      background: var(--ink);
+    }
+
+    .fullpage-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .fullpage-img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 16px 60px rgba(44, 36, 32, 0.1);
+    }
+
+    .fullpage-section.bg-dark .fullpage-img {
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ══ FOOTER ══ */
+    .footer {
+      background: var(--ink);
+      padding: 80px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-logo-img {
+      max-width: 360px;
+      width: 65%;
+      object-fit: contain;
+    }
+
+    .footer-slogan {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      letter-spacing: 0.5em;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201, 112, 106, 0.3);
+      margin-top: 8px;
+    }
+
+    .footer-credit {
+      margin-top: 16px;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.3);
+      text-align: center;
+      line-height: 2.4;
+    }
+
+    .footer-credit a {
+      color: var(--rose-light);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-credit a:hover {
+      color: var(--rose);
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @media(max-width:768px) {
+      .elements-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero,
+      .concept-section,
+      .elements-section,
+      .color-section,
+      .fullpage-section {
+        padding: 80px 24px
+      }
+
+      .mockup-section {
+        padding: 60px 20px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+     HERO
+     ══════════════════════════════════════ -->
+  <section class="hero">
+    <p class="hero-tag">Logo Design Concept</p>
+    <img class="logo-hero-img" src="images/logo_slogan.png" alt="小花租賃 Logo">
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     MOCKUP 情境圖
+     ══════════════════════════════════════ -->
+  <section class="mockup-section">
+    <div class="mockup-inner">
+      <img class="reveal mockup-img" src="images/mockup.png" alt="設計理念 Mockup">
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     設計理念文字
+     ══════════════════════════════════════ -->
+  <section class="concept-section">
+    <div class="concept-inner">
+      <p class="section-label">Logo Design Concept</p>
+      <p class="concept-title"> LOGO 設計理念 </p>
+      <div class="concept-text">
+        <p>LOGO 圖標以台灣傳統海棠花玻璃窗花為靈感，融合建築空間與專業服務三大元素。海棠花窗花是台灣老建築中最溫暖的記憶符號，象徵家的歸屬與守護；四瓣飽滿的花形外廓同時隱喻建築的穩固與包容，傳遞安心託付的品牌精神。</p>
+        <p>圖標內部藏有鋼筆筆尖，呼應租賃產業中契約與信任的核心本質。期許小花包租代管成為每位屋主最信賴的夥伴，以專業為筆，守護每一個家。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     三元素拆解
+     換圖：images/element_1.png / element_2.png / element_3.png
+     ══════════════════════════════════════ -->
+  <section class="elements-section">
+    <div class="elements-inner">
+      <p class="section-label light">Design Elements</p>
+      <div class="elements-logo-wrap">
+        <img class="elements-logo-img" src="images/logo_s.png" alt="小花租賃">
+      </div>
+      <div class="connector-line"></div>
+      <div class="connector-spread">
+        <div class="connector-vert"></div>
+        <div class="connector-vert"></div>
+        <div class="connector-vert"></div>
+      </div>
+      <div class="elements-grid">
+        <div class="element-card">
+          <div class="element-img-wrap">
+            <img src="images/element_1.png" alt="海棠花窗">
+          </div>
+          <div style="text-align:center;">
+            <p class="element-label-en">Begonia window grilles</p>
+            <p class="element-label-zh">海棠花窗</p>
+          </div>
+          <p class="element-desc">台灣老建築中最溫暖的記憶符號，凝聚著家的情感與歲月的溫度</p>
+        </div>
+        <div class="element-card">
+          <div class="element-img-wrap">
+            <img src="images/element_2.png" alt="建築空間">
+          </div>
+          <div style="text-align:center;">
+            <p class="element-label-en">Architecture</p>
+            <p class="element-label-zh">建築空間</p>
+          </div>
+          <p class="element-desc">四瓣飽滿的花形外廓隱喻建築的穩固與包容，傳遞安心託付的品牌精神</p>
+        </div>
+        <div class="element-card">
+          <div class="element-img-wrap">
+            <img src="images/element_3.png" alt="專業服務">
+          </div>
+          <div style="text-align:center;">
+            <p class="element-label-en">Professional service</p>
+            <p class="element-label-zh">專業服務</p>
+          </div>
+          <p class="element-desc">圖標內藏鋼筆筆尖，象徵契約精神與信任承諾，以專業為筆守護每一個家</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     品牌色票
+     ══════════════════════════════════════ -->
+  <section class="color-section">
+    <div class="color-inner">
+      <p class="section-label">Brand Color</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#C9706A;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">玫瑰磚紅</p>
+            <p class="swatch-hex">#C9706A</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#2C2420;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">墨黑</p>
+            <p class="swatch-hex">#2C2420</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#FAF6F2;border:1px solid #E0D5CE;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">暖白</p>
+            <p class="swatch-hex">#FAF6F2</p>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#F2E0DC;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">淡玫瑰</p>
+            <p class="swatch-hex">#F2E0DC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     標誌組合方式
+     ══════════════════════════════════════ -->
+  <section class="fullpage-section bg-cream">
+    <div class="fullpage-inner">
+      <p class="section-label">Logo Combination</p>
+      <img class="reveal fullpage-img" src="images/variants_page.png" alt="標誌標準字組合方式">
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     黑白色搭配
+     ══════════════════════════════════════ -->
+  <section class="fullpage-section bg-dark">
+    <div class="fullpage-inner">
+      <p class="section-label light">Black & White</p>
+      <img class="reveal fullpage-img" src="images/bw_page.png" alt="黑白色搭配">
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img class="footer-logo-img" src="images/logo_w.png" alt="小花租賃">
+      <p class="footer-slogan">花開有信 守護有恆</p>
+      <div class="footer-divider"></div>
+      <p class="footer-credit">
+        設計製作 ｜ <a href="https://www.joyousf.com/" target="_blank" rel="noopener">悅心創意 JoyousF</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.element-card,.color-swatch,.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
